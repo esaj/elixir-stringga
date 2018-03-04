@@ -7,26 +7,6 @@ a software that takes in a string and uses excessively high amounts of computing
 output the same string ;) ), which makes it a bit boring. However, the point here is
 actually to learn Elixir as a language, rather than build anything new or very efficient.
 
-I would have liked to recreate the "classic" Mona Lisa -GA with Elixir (I think the
-very first and original "build Mona Lisa from 50 ARGB triangles"-thingamabob
-is https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/ ),
-although NASA's been generating satellite antennas and whatnot using GAs for, I don't know,
-couple of decades?
-
-However, with the limited time I had, I didn't want to create an algorithm for writing the
-triangle data into a buffer myself, and after a while of tweaking with the OpenGL for Elixir
-sample out there ( https://wtfleming.github.io/2016/01/06/getting-started-opengl-elixir/ ),
-the best I could come up was to add alpha-blending and copying pixel data from the backbuffer,
-and that was after several hours of time spent:
-
-https://imgur.com/ZAtLmhi
-
-
-The point was to learn Elixir, not battle it out with wxWidgets & Erlang. ;) The example was
-missing a lot of the constants alone, and sometimes would crash when copying pixels from
-backbuffer so I decided I'd better not waste any more time on that and instead concentrate
-on Elixir as a language...
-
 The GA-implementation represented in this project is hardly anything no-one has ever seen
 before. You have your basic settings with mutation, crossover and population size. The only
 a bit "out of the ordinary" setting is the "new_random_gene" which is a percentage value
@@ -126,6 +106,25 @@ iex(3)>
 
 The fitness-function is actually an error term here, so the algorithm tries to minimize it, with 0 representing perfect match. Rest of the details you can probably work out from the code, if you're that interested ;)
 
+I would have originally liked to recreate the "classic" Mona Lisa -GA with Elixir (I think the
+very first and original "build Mona Lisa from 50 ARGB triangles"-thingamabob
+is https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/ ), which
+is at least marginally more useful application of the algorithm, and looks really cool.
+
+However, with the limited time I had, I didn't want to create an algorithm for writing the
+pixels of a triangle into an array/list representing the image buffer myself, and after a
+while of tweaking with the OpenGL for Elixir sample out there
+( https://wtfleming.github.io/2016/01/06/getting-started-opengl-elixir/ ), the best I could
+come up was to add alpha-blending and copying pixel data from the backbuffer, and that was
+after several hours of time spent, leading to this:
+
+https://imgur.com/ZAtLmhi
+
+
+The point was to learn Elixir, not battle it out with wxWidgets & Erlang. ;) The example was
+missing a lot of the constants alone, and sometimes would crash when copying pixels from
+backbuffer so I decided I'd better not waste any more time on that and instead concentrate
+on Elixir as a language...
 
 
 ## License:
